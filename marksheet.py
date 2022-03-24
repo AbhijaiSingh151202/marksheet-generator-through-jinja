@@ -1,4 +1,6 @@
 import csv
+from re import template
+from jinja2 import Environment, FileSystemLoader
 
 a = []
 with open('student_marks.csv', 'r') as f:
@@ -11,3 +13,12 @@ with open('student_marks.csv', 'r') as f:
             a.append(line)
 
 print(a)
+
+file_loader = FileSystemLoader('templates')
+env = Environment(loader=file_loader)
+template = env.get_template('marksheet.html')
+msg = template.render(a=a)
+
+for i in range(0,5):
+    with open(a[i][0] + '.html', 'w') as f:
+        f.write(msg)
