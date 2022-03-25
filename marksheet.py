@@ -17,8 +17,8 @@ print(a)
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
 template = env.get_template('marksheet.html')
-msg = template.render(a=a)
 
 for i in range(0,5):
     with open(a[i][0] + '.html', 'w') as f:
+        msg = template.render(a=a[i])
         f.write(msg)
