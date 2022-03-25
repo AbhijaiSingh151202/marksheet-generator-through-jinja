@@ -10,15 +10,10 @@
     <h1>Student Marksheet</h1>
     <table>
         <tr>
-            <th>Name</th>
-            <th>Maths</th>
-            <th>Physics</th>
-            <th>Chemistry</th>
-            <th>English</th>
-            <th>Biology</th>
-            <th>Economics</th>
-            <th>History</th>
-            <th>Civics</th>
+            <th>{{ header[0] }}</th>
+            {% for i in header[3:11] %} 
+                <th>{{ i }}</th>
+            {% endfor %}
         </tr>
         <tr>
             <td>{{ a[0] }}</td>
